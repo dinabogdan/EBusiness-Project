@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+    
+     
+     
+    <style>
+        ul{
+            list-style-type: none;
+            margin:0;
+            padding:0;
+            overflow:hidden;
+            background-color:#335;
+        }
+        
+        li{
+            float:left;
+        }
+        
+        li a{
+            display:block;
+            color:white;
+            text-align:center;
+            padding: 14px 16px;
+            text-decoration:none;
+        }
+        
+        li a:hover{
+            background-color:#111;
+        }
+        
+        label{
+            color:yellow;
+            opacity:0.5;
+            font:verdana;
+        }
+    </style>    
+    </head>
+    
+    <body>
+        
+        <ul>
+            <li><a ui-sref="home()">Home</a></li>
+            <li><a class="active" ui-sref="companies()">Insurance Companies</a></li>
+            <li><a ui-sref="clientMenu()">Clients</a></li>
+            <li><a ui-sref="cars()">Cars</a></li>
+            <li><a ui-sref="about()">About</a></li>
+        </ul>
+        
+    </body>
+    
+    
+    <div>
+        
+        <div class="page-header">
+            <h3>List of insurance companies:</h3>
+        </div>
+        
+        <table class="table table-striped">
+            <tr>
+                <th>
+                    Company Name
+                </th>
+            </tr>
+            <tr ng-repeat="company in companies" ng-include="getTemplate(company)">
+                
+                
+            </tr>
+            
+        </table>
+        
+        
+        <h2>Add a new insurance company:</h2>
+        
+        <form style="background-color:grey; opacity:0.5;">
+            
+            <label for="companyName">Name of the company:</label>
+            <input type="text" id="companyName" ng-model="c.name"/>
+            <button type="button" ng-click="addCompany(c)" class="btn btn-info btn-lg">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>ADD
+            </button>
+            
+        </form>
+        
+        <script type="text/ng-template" id="display">
+            <td>{{company.name}}</td>
+            
+            <td>
+                
+                <a ui-sref="clientsOfCompany({id: company.id})">See all the clients of this company</a>
+                <button type="button" value="Remove" ng-click="deleteCompany(company)" class="btn btn-info btn-lg" style="background-color:red;">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove
+                </button>
+                <button type="button" value="Edit" ng-click="editCompany(company)" class="btn btn-info btn-lg" style="background-color:green;">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit
+                </button>
+                
+            </td>
+            
+        </script>
+        
+        
+        <script type="text/ng-template" id="edit">
+            
+            <td><input type="text" ng-model="company.name" /></td>
+            
+            <td>
+                <button type="button" value="Save" ng-click="saveCompany(company)" class="btn btn-success">
+                    <span class="glyphicon glyphicon-ok-sign" aria-hidden="true" ></span> Save
+                </button>
+                
+                <button type="button" value="Cancel" ng-click="cancelEditing()" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-remove-sign" aria-hidden="true" ></span> Cancel
+                </button>
+            </td>
+            
+        </script>
+    </div>
+    
+</html>

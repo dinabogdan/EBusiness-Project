@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+  <style>
+      
+      .carousel-inner > .item > img,
+      .carousel-inner > .item > a > img {
+          width:640px;
+          height:360px;
+          margin:auto;
+      }
+      
+      
+      ul{
+            list-style-type: none;
+            margin:0;
+            padding:0;
+            overflow:hidden;
+            background-color:#335;
+        }
+        
+        li{
+            float:left;
+        }
+        
+        li a{
+            display:block;
+            color:white;
+            text-align:center;
+            padding: 14px 16px;
+            text-decoration:none;
+        }
+        
+        li a:hover{
+            background-color:#111;
+        }
+        
+        
+        div{
+            display:block;
+        }
+        
+        
+        body{
+            background-color:#fff5cc;
+        }
+        
+        
+      
+          
+  </style>
+    </head>
+    
+    
+    <body>
+        
+        <ul>
+            <li><a class="active" ui-sref="home()">Home</a></li>
+            <li><a ui-sref="companies()">Insurance Companies</a></li>
+            <li><a ui-sref="clientMenu()">Clients</a></li>
+            <li><a ui-sref="cars()">Cars</a></li>
+            <li><a ui-sref="about()">About</a></li>
+        </ul>
+        
+        <div class="container">
+            
+            <br>
+            
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:800px; margin: 0 auto">
+                
+                <ol class="carousel-indicators">
+                    
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <li data-target="#myCarousel" data-slide-to="3"></li>
+                    
+                </ol>
+                
+                
+                <div class="carousel-inner" role="listbox">
+                    
+                    <div class="item active">
+                        <img src="data:image/jpeg;base64,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" 
+                            alt="FirstImage" width="460" height="345" ui-sref="clientMenu()">
+                            <div class="carousel-caption">
+                                  <h3>Clients</h3>
+                                  <p>See more about our clients!</p>
+                            </div>
+                    </div>
+                    
+                    <div class="item">
+                        <img src="http://www.ourbusinessladder.com/wp-content/uploads/2016/05/How-to-start-an-insurance-company-org-848x315.jpg" 
+                            alt="SecondImage" width="460" heigth="345" ui-sref="companies()">
+                            
+                            <div class="carousel-caption">
+                                <h3>Companies</h3>
+                                <p>See more about insurance companies!</p>
+                            </div>
+                    </div>
+                    
+                    <div class="item">
+                        <img src="http://www.azoft.com/images/case-studies/mobile-application-for-insurance-company.jpg" 
+                        alt="ThirdImage" width="460" height="345" ui-sref="cars()">
+                        
+                        <div class="carousel-caption">
+                            <h3>Cars</h3>
+                            <p>See more about insuranced cars!</p>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="item">
+                        <img src="http://www.kaushalam.com/blog/wp-content/uploads/2013/03/AboutUs.jpg" 
+                        alt="FourthImage" width="460" height="345" ui-sref="about()">
+                        
+                        <div class="carousel-caption">
+                            <h3>About</h3>
+                            <p>See more about us!</p>
+                                                    
+                        </div>
+    
+                    </div>
+                    
+                </div>
+                
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                
+            </div>
+        </div>
+        
+        
+        <div>
+            
+            <h1 style="color:blue; font-family:verdana; text-align:center">Save Money with Auto Insurance Discounts!!!</h1>
+            <h1 style="color:tomato; font-family:times new roman; text-align:center">Auto Insurance Options That Keep You Covered!!!</h1>
+            
+        </div>
+        
+        
+        
+    </body>
+</html>

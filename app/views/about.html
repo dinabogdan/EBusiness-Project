@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        
+        <style type="text/css">
+            
+            ul{
+            list-style-type: none;
+            margin:0;
+            padding:0;
+            overflow:hidden;
+            background-color:#335;
+            }
+        
+            li{
+                float:left;
+            }
+        
+            li a{
+                display:block;
+                color:white;
+                text-align:center;
+                padding: 14px 16px;
+                text-decoration:none;
+            }
+        
+            li a:hover{
+                background-color:#111;
+            }
+        
+            label{
+                color:yellow;
+                opacity:0.5;
+                font:verdana;
+            }
+            
+        </style>
+        
+    </head>
+    
+    
+    <body>
+        
+        
+         <ul>
+            <li><a ui-sref="home()">Home</a></li>
+            <li><a ui-sref="companies()">Insurance Companies</a></li>
+            <li><a ui-sref="clientMenu()">Clients</a></li>
+            <li><a class="active" ui-sref="cars()">Cars</a></li>
+            <li><a ui-sref="about()">About</a></li>
+            
+        </ul>
+        
+        <h2 style="color:orange; opacity:0.5; background-color:tomato">This is my Web Technologies project!</h2>
+        <h3 style="color:magenta; opacity:0.77; background-color:yellow">My name is Dina Bogdan and I'm a student of 1066 group!</h3>
+    </body>
+    
+    
+    
+</html>
